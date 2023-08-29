@@ -38,6 +38,6 @@ public class ReadAndWrite {
             reader.read();
         }
         reader.close();
-        return count;
+        return count - 1;
     }
 }
