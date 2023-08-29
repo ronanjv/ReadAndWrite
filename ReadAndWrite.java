@@ -6,16 +6,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class ReadAndWrite {
+    StringBuilder sb;
 
     public ReadAndWrite(String inputFile) throws IOException {
         File file = new File(inputFile);
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        StringBuilder sb = new StringBuilder();
+        sb = new StringBuilder();
         int character;
         while ((character = reader.read()) != -1) {
             sb.append((char) character);
         }
         reader.close();
+    }
+
+    public String getString() {
+        return sb.toString();
     }
 
     public void write(String strFile, String str) throws IOException {
@@ -32,6 +37,7 @@ public class ReadAndWrite {
             count++;
             reader.read();
         }
+        reader.close();
         return count;
     }
 }
